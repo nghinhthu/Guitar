@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row" style="margin-top:30px; margin-bottom: 30px;">
+        <div class="col-3 left" style="background-color: lightgreen;">
+            <ul style="list-style-type:none">
+                <li>
+                    <h6>Links</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#"> View Cart</a></li>
+                        <li><a href="#">Login/Register</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Categories</h6>
+                    <ul style="list-style-type:none">
+                        <li [routerLink]="['/product',p.cid]" *ngFor="let p of categories" (click)='filter()'><a href="#">{{p.catename}}</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Temp Link</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#">Admin</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <h5 style="color:darkgreen;">Featured products</h5>
+            <div class="row product" *ngFor="let t of products">
+                <div class="col-3" style="padding-bottom: 20px;"><img src="{{t.image}}" width="150px" height="150px"></div>
+                <div class="col-9">
+                    <a [routerLink]="['/product',t.id]" style="color: lightcoral;">
+                        <h5>{{t.productname}}</h5>
+                    </a>
+                    <p>{{t.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

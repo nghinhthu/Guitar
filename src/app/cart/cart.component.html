@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row" style="margin-top:30px; margin-bottom: 30px;">
+        <div class="col-3 left" style="background-color: lightgreen;">
+            <ul style="list-style-type:none">
+                <li>
+                    <h6>Links</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#"> View Cart</a></li>
+                        <li><a href="#">Login/Register</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Categories</h6>
+                    <ul style="list-style-type:none">
+                        <li [routerLink]="['/product',p.id]" *ngFor="let p of categories"><a href="#">{{p.catename}}</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Temp Link</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#">Admin</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <h4>Your Cart</h4>
+            <p>To remove an item from your cart, changes its quantity to 0.</p>
+            <!-- <div class="cart-item" *ngFor="let item of items">
+                <span>{{ product.name }}</span>
+                <span>{{ item.price | currency }}</span>
+            </div> -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items">
+                        <th scope="row">{{item.productname}}</th>
+                        <td>{{item.savePrice}}</td>
+                        <td><input type="number" min="1" [(ngModel)]="item.quantity" [ngModelOptions]="{standalone: true}" style="width:50px"></td>
+                        <td>{{price(item.id)}}</td>
+                        <td><button type="button" class="btn btn-danger" (click)="clearCart(item.id)">Remove</button></td>
+                    </tr>
+
+                </tbody>
+                <td scope="col">Total Price</td>
+                <td colspan="5" style="text-align:right">{{total()}}</td>
+            </table>
+            <div class="btn">
+                <button type="button" class="btn btn-primary" [routerLink]="['/form']">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>

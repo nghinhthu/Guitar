@@ -1,0 +1,24 @@
+.container {
+    padding-left: 10px;
+}
+
+h6 {
+    color: crimson;
+}
+
+.left {
+    background: #fca5f1;
+    background: -webkit-linear-gradient(45deg, #fca5f1, #b5ffff);
+    background: -o-linear-gradient(45deg, #fca5f1, #b5ffff);
+    background: -moz-linear-gradient(45deg, #fca5f1, #b5ffff);
+    background: linear-gradient(45deg, #fca5f1, #b5ffff);
+}
+
+img {
+    width: 150px;
+    height: 120px;
+}
+
+.a {
+    display: inline;
+}

@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row" style="margin-top:30px; margin-bottom: 30px;">
+        <div class="col-3 left" style="background-color: lightgreen;">
+            <ul style="list-style-type:none">
+                <li>
+                    <h6>Links</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#"> View Cart</a></li>
+                        <li><a href="#">Login/Register</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Categories</h6>
+                    <ul style="list-style-type:none">
+                        <li [routerLink]="['/product',p.id]" *ngFor="let p of categories"><a href="#">{{p.catename}}</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Temp Link</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#">Admin</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <h3 class="lightcoral">{{product.productname}}</h3>
+            <div class="row product">
+                <div class="col-3">
+                    <img src="{{product.image}}">
+                </div>
+                <div class="col-9">
+                    <span class="name">List Price:</span> &nbsp;
+                    <span>${{product.price}}</span><br>
+                    <span class="name">Discount:</span> &nbsp;
+                    <span>{{discount}}%</span><br>
+                    <span class="name">Your Price:</span> &nbsp;
+                    <span>${{realPrice()}} &nbsp; (You Save ${{savePrice()}})</span><br>
+                    <span class="name">Quantity:</span> &nbsp;
+                    <span><input type="number" min="1" style="width:50px" [(ngModel)]="product.quantity" [ngModelOptions]="{standalone: true}"></span> &nbsp;
+                    <span>
+                        <button type="button" class="btn btn-light" (click)="addToCart(product)">Add To Cart</button> &nbsp;
+                        <button type="button" class="btn btn-primary" [routerLink]="['/cart']">View Your Cart</button>
+                    </span><br>
+                    <h4 class="lightcoral">Description</h4>
+                    <p>{{product.description}}</p>
+                    <p>New Feature</p>
+                    <div class="description">
+                        <ul *ngFor="let p of product.newfeature">
+                            <li>{{p.text}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

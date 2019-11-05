@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row" style="margin-top:30px; margin-bottom: 30px;">
+        <div class="col-3 left" style="background-color: lightgreen;">
+            <ul style="list-style-type:none">
+                <li>
+                    <h6>Links</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#"> View Cart</a></li>
+                        <li><a href="#">Login/Register</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Categories</h6>
+                    <ul style="list-style-type:none">
+                        <li [routerLink]="['/product',p.id]" *ngFor="let p of categories"><a href="#">{{p.catename}}</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h6>Temp Link</h6>
+                    <ul style="list-style-type:none">
+                        <li><a href="#">Admin</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <h4>Your Order: 4</h4>
+            <p>Oreder Number: 1</p>
+            <p>Order Date: Oct 9, 2010</p>
+            <h5>Shipping</h5>
+            <p>Ship Date: Not shipped yet</p>
+            <p>1234 Any Place Road</p>
+            <p>Some Where, CA 93772</p>
+            <p>5551112222</p>
+            <h5>Billing</h5>
+            <p>Card Number ...444</p>
+            <p>1234 Any Place Road</p>
+            <p>Some Where, CA 93772</p>
+            <p>5551112222</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col"> List Price</th>
+                        <!-- <th scope="col"> Save Price</th> -->
+                        <th scope="col">Your Cost</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Line Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items">
+                        <th scope="row">{{item.productname}}</th>
+                        <td>{{item.price}}</td>
+                        <!-- <td>{{saving(item.id)}}</td> -->
+                        <td>{{item.savePrice}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{price(item.id)}}</td>
+                    </tr>
+
+                </tbody>
+                <tr>
+                    <td scope="col">SubTotal</td>
+                    <td colspan="5" style="text-align:right">${{subTotal()}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">CA Tax</td>
+                    <td colspan="5" style="text-align:right">${{tax}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Shipping</td>
+                    <td colspan="5" style="text-align:right">${{shipping}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Total</td>
+                    <td colspan="5" style="text-align:right">${{Total()}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
